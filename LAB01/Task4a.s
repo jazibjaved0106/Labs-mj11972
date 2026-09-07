@@ -9,4 +9,9 @@ main:
     
     sw x10, 0(x20)
     sw x11, 0(x21)
-    
+    lhu x12, 0(x20)
+    lh x13, 0(x21)
+    lb x14, 0(x21)
+
+end:
+    j end
