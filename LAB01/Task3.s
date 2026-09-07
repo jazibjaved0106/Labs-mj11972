@@ -5,7 +5,7 @@ main:
     li x21, 0  # b=0
     li x24, 5  #stores 5 
 
-    addi x20, x21, 32 # a=b+32
+    addi x20, x21 , 32 # a=b+32
     add x22, x20, x21  #a+b
     sub x23, x22, x24 # d= (a+b)-5
     sub x25, x20, x23  # a-d
