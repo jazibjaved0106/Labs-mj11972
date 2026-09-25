@@ -2,11 +2,11 @@
 .globl main
 main:
     addi x10,x0, 5 #x=5
-    jal x1, fact
+    jal x1, fact   # calls function fact 
 
 
     addi x11,x10,0
-    li x10, 1
+    li x10, 1      #print int ecall
     ecall
     j end
     
