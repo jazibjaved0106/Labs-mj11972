@@ -1,0 +1,11 @@
+0.7
+2020.1
+May 27 2020
+20:09:33
+D:/CA_LABS/Labs-mj11972/CA_LAB_08/CA_LAB_08.sim/sim_1/behav/xsim/glbl.v,1590624368,verilog,,,,glbl,,,,,,,,
+D:/CA_LABS/Labs-mj11972/CA_LAB_08/CA_LAB_08.srcs/sim_1/new/MemorySystem_tb.v,1792569531,verilog,,,,MemorySystem_tb,,,,,,,,
+D:/CA_LABS/Labs-mj11972/CA_LAB_08/CA_LAB_08.srcs/sources_1/new/AddressDecoder.v,1792599482,verilog,,D:/CA_LABS/Labs-mj11972/CA_LAB_08/CA_LAB_08.srcs/sources_1/new/DataMemory.v,,AddressDecoder,,,,,,,,
+D:/CA_LABS/Labs-mj11972/CA_LAB_08/CA_LAB_08.srcs/sources_1/new/DataMemory.v,1792582328,verilog,,D:/CA_LABS/Labs-mj11972/CA_LAB_08/CA_LAB_08.srcs/sources_1/new/addressDecoderTop.v,,DataMemory,,,,,,,,
+D:/CA_LABS/Labs-mj11972/CA_LAB_08/CA_LAB_08.srcs/sources_1/new/addressDecoderTop.v,1792568637,verilog,,D:/leds.v,,addressDecoderTop,,,,,,,,
+D:/leds.v,1790151537,verilog,,D:/switches.v,,leds,,,,,,,,
+D:/switches.v,1790151513,verilog,,D:/CA_LABS/Labs-mj11972/CA_LAB_08/CA_LAB_08.srcs/sim_1/new/MemorySystem_tb.v,,switches,,,,,,,,
