@@ -1,0 +1,8 @@
+0.7
+2020.1
+May 27 2020
+20:09:33
+D:/CA_LABS/Labs-mj11972/CA_LAB_09/CA_LAB_09.sim/sim_1/behav/xsim/glbl.v,1590624368,verilog,,,,glbl,,,,,,,,
+D:/CA_LABS/Labs-mj11972/CA_LAB_09/CA_LAB_09.srcs/sim_1/new/Control_tb.v,1793174813,verilog,,,,Control_tb,,,,,,,,
+D:/CA_LABS/Labs-mj11972/CA_LAB_09/CA_LAB_09.srcs/sources_1/new/ALUControl.v,1793174597,verilog,,D:/CA_LABS/Labs-mj11972/CA_LAB_09/CA_LAB_09.srcs/sources_1/new/MainControl.v,,ALUControl,,,,,,,,
+D:/CA_LABS/Labs-mj11972/CA_LAB_09/CA_LAB_09.srcs/sources_1/new/MainControl.v,1793174600,verilog,,D:/CA_LABS/Labs-mj11972/CA_LAB_09/CA_LAB_09.srcs/sim_1/new/Control_tb.v,,MainControl,,,,,,,,
