@@ -1,0 +1,270 @@
+// ---- start:
+13 // addr   0: 20000113  addi sp, x0, 512
+01
+00
+20
+13 // addr   4: 30000413  addi s0, x0, 768
+04
+00
+30
+93 // addr   8: 20000493  addi s1, x0, 512
+04
+00
+20
+13 // addr  12: 3fc00913  addi s2, x0, 1020
+09
+c0
+3f
+// ---- wait_input:
+23 // addr  16: 0004a023  sw   x0, 0(s1)
+a0
+04
+00
+83 // addr  20: 00092283  lw   t0, 0(s2)
+22
+09
+00
+63 // addr  24: 00028463  beq  t0, x0, chk_sw
+84
+02
+00
+e3 // addr  28: fe000ae3  beq  x0, x0, wait_input
+0a
+00
+fe
+// ---- chk_sw:
+03 // addr  32: 00042503  lw   a0, 0(s0)
+25
+04
+00
+e3 // addr  36: fe0506e3  beq  a0, x0, wait_input
+06
+05
+fe
+13 // addr  40: ffc10113  addi sp, sp, -4
+01
+c1
+ff
+93 // addr  44: 00100293  addi t0, x0, 1
+02
+10
+00
+23 // addr  48: 00512023  sw   t0, 0(sp)
+20
+51
+00
+63 // addr  52: 00000463  beq  x0, x0, countdown
+04
+00
+00
+// ---- ret_main:
+e3 // addr  56: fc000ce3  beq  x0, x0, wait_input
+0c
+00
+fc
+// ---- countdown:
+13 // addr  60: ffc10113  addi sp, sp, -4
+01
+c1
+ff
+23 // addr  64: 01312023  sw   s3, 0(sp)
+20
+31
+01
+93 // addr  68: 00050993  addi s3, a0, 0
+09
+05
+00
+// ---- cd_loop:
+23 // addr  72: 0134a023  sw   s3, 0(s1)
+a0
+34
+01
+63 // addr  76: 02098463  beq  s3, x0, cd_done
+84
+09
+02
+13 // addr  80: ffc10113  addi sp, sp, -4
+01
+c1
+ff
+93 // addr  84: 00100293  addi t0, x0, 1
+02
+10
+00
+23 // addr  88: 00512023  sw   t0, 0(sp)
+20
+51
+00
+63 // addr  92: 02000a63  beq  x0, x0, delay_1s
+0a
+00
+02
+// ---- ret_cd:
+63 // addr  96: 00050463  beq  a0, x0, cd_next
+04
+05
+00
+63 // addr 100: 00000663  beq  x0, x0, cd_reset
+06
+00
+00
+// ---- cd_next:
+93 // addr 104: fff98993  addi s3, s3, -1
+89
+f9
+ff
+e3 // addr 108: fc000ee3  beq  x0, x0, cd_loop
+0e
+00
+fc
+// ---- cd_reset:
+23 // addr 112: 0004a023  sw   x0, 0(s1)
+a0
+04
+00
+// ---- cd_done:
+83 // addr 116: 00012983  lw   s3, 0(sp)
+29
+01
+00
+13 // addr 120: 00410113  addi sp, sp, 4
+01
+41
+00
+83 // addr 124: 00012283  lw   t0, 0(sp)
+22
+01
+00
+13 // addr 128: 00410113  addi sp, sp, 4
+01
+41
+00
+93 // addr 132: fff28293  addi t0, t0, -1
+82
+f2
+ff
+e3 // addr 136: fa0288e3  beq  t0, x0, ret_main
+88
+02
+fa
+e3 // addr 140: f80002e3  beq  x0, x0, wait_input
+02
+00
+f8
+// ---- delay_1s:
+13 // addr 144: ff410113  addi sp, sp, -12
+01
+41
+ff
+23 // addr 148: 00612423  sw   t1, 8(sp)
+24
+61
+00
+23 // addr 152: 00712223  sw   t2, 4(sp)
+22
+71
+00
+23 // addr 156: 01c12023  sw   t3, 0(sp)
+20
+c1
+01
+13 // addr 160: 7d000e13  addi t3, x0, 2000
+0e
+00
+7d
+// ---- d_outer:
+13 // addr 164: 3e800313  addi t1, x0, 1000
+03
+80
+3e
+// ---- d_inner:
+83 // addr 168: 00092383  lw   t2, 0(s2)
+23
+09
+00
+63 // addr 172: 00038463  beq  t2, x0, d_ok
+84
+03
+00
+63 // addr 176: 02000263  beq  x0, x0, d_reset
+02
+00
+02
+// ---- d_ok:
+13 // addr 180: fff30313  addi t1, t1, -1
+03
+f3
+ff
+63 // addr 184: 00030463  beq  t1, x0, d_inner_done
+04
+03
+00
+e3 // addr 188: fe0006e3  beq  x0, x0, d_inner
+06
+00
+fe
+// ---- d_inner_done:
+13 // addr 192: fffe0e13  addi t3, t3, -1
+0e
+fe
+ff
+63 // addr 196: 000e0463  beq  t3, x0, d_finish
+04
+0e
+00
+e3 // addr 200: fc000ee3  beq  x0, x0, d_outer
+0e
+00
+fc
+// ---- d_finish:
+13 // addr 204: 00000513  addi a0, x0, 0
+05
+00
+00
+63 // addr 208: 00000463  beq  x0, x0, d_exit
+04
+00
+00
+// ---- d_reset:
+13 // addr 212: 00100513  addi a0, x0, 1
+05
+10
+00
+// ---- d_exit:
+03 // addr 216: 00012e03  lw   t3, 0(sp)
+2e
+01
+00
+83 // addr 220: 00412383  lw   t2, 4(sp)
+23
+41
+00
+03 // addr 224: 00812303  lw   t1, 8(sp)
+23
+81
+00
+13 // addr 228: 00c10113  addi sp, sp, 12
+01
+c1
+00
+83 // addr 232: 00012283  lw   t0, 0(sp)
+22
+01
+00
+13 // addr 236: 00410113  addi sp, sp, 4
+01
+41
+00
+93 // addr 240: fff28293  addi t0, t0, -1
+82
+f2
+ff
+e3 // addr 244: f60286e3  beq  t0, x0, ret_cd
+86
+02
+f6
+e3 // addr 248: f0000ce3  beq  x0, x0, wait_input
+0c
+00
+f0
